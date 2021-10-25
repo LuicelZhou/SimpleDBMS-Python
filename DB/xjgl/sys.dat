@@ -1,0 +1,4 @@
+students 1 name CHAR 4
+students 2 age INT
+students 3 sex CHAR 4
+students 4 num CHAR 14
