@@ -1,0 +1,1521 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    NOT
+
+Grammar
+
+Rule 0     S' -> start
+Rule 1     start -> command ; start
+Rule 2     start -> empty
+Rule 3     command -> ddl
+Rule 4     command -> dml
+Rule 5     command -> utility
+Rule 6     command -> empty
+Rule 7     ddl -> createdatabase
+Rule 8     ddl -> createtable
+Rule 9     ddl -> droptable
+Rule 10    ddl -> dropdatabase
+Rule 11    ddl -> showdatabases
+Rule 12    ddl -> showtables
+Rule 13    ddl -> usedatabase
+Rule 14    dml -> query
+Rule 15    dml -> update
+Rule 16    dml -> insert
+Rule 17    dml -> delete
+Rule 18    utility -> exit
+Rule 19    exit -> EXIT
+Rule 20    empty -> <empty>
+Rule 21    createdatabase -> CREATE DATABASE ID
+Rule 22    showdatabases -> SHOW DATABASES
+Rule 23    usedatabase -> USE ID
+Rule 24    dropdatabase -> DROP DATABASE ID
+Rule 25    showtables -> SHOW TABLES
+Rule 26    droptable -> DROP TABLE ID
+Rule 27    createtable -> CREATE TABLE ID ( create_list )
+Rule 28    query -> SELECT select_list FROM from_list where_list
+Rule 29    update -> UPDATE ID SET set_list where_list
+Rule 30    insert -> INSERT INTO into_list VALUES insertvalue_list
+Rule 31    delete -> DELETE FROM ID where_list
+Rule 32    insertvalue_list -> ( mvalue_list )
+Rule 33    create_list -> attrtype , create_list
+Rule 34    create_list -> attrtype
+Rule 35    attrtype -> ID type
+Rule 36    attrtype -> ID type ( NUMBER )
+Rule 37    type -> INT
+Rule 38    type -> CHAR
+Rule 39    select_list -> relaattr_list
+Rule 40    select_list -> *
+Rule 41    relaattr_list -> relaattr , relaattr_list
+Rule 42    relaattr_list -> relaattr
+Rule 43    from_list -> ID , from_list
+Rule 44    from_list -> ID
+Rule 45    where_list -> WHERE mcond_list
+Rule 46    where_list -> empty
+Rule 47    mcond_list -> mcond_list AND mcond_list
+Rule 48    mcond_list -> mcond_list OR mcond_list
+Rule 49    mcond_list -> ( mcond_list )
+Rule 50    mcond_list -> condition
+Rule 51    condition -> relaattr op relaattr_or_value
+Rule 52    condition -> relaattr EQ null_value
+Rule 53    condition -> relaattr NE null_value
+Rule 54    relaattr_or_value -> relaattr
+Rule 55    relaattr_or_value -> value
+Rule 56    mvalue_list -> value , mvalue_list
+Rule 57    mvalue_list -> value
+Rule 58    mvalue_list -> null_value , mvalue_list
+Rule 59    mvalue_list -> null_value
+Rule 60    value -> STRING
+Rule 61    value -> NUMBER
+Rule 62    null_value -> NULL
+Rule 63    op -> LT
+Rule 64    op -> LE
+Rule 65    op -> GT
+Rule 66    op -> GE
+Rule 67    op -> EQ
+Rule 68    op -> NE
+Rule 69    set_list -> relaattr EQ value , set_list
+Rule 70    set_list -> relaattr EQ value
+Rule 71    into_list -> ID ( colum_list )
+Rule 72    into_list -> ID
+Rule 73    colum_list -> ID , colum_list
+Rule 74    colum_list -> ID
+Rule 75    relaattr -> ID . ID
+Rule 76    relaattr -> ID
+
+Terminals, with rules where they appear
+
+(                    : 27 32 36 49 71
+)                    : 27 32 36 49 71
+*                    : 40
+,                    : 33 41 43 56 58 69 73
+.                    : 75
+;                    : 1
+AND                  : 47
+CHAR                 : 38
+CREATE               : 21 27
+DATABASE             : 21 24
+DATABASES            : 22
+DELETE               : 31
+DROP                 : 24 26
+EQ                   : 52 67 69 70
+EXIT                 : 19
+FROM                 : 28 31
+GE                   : 66
+GT                   : 65
+ID                   : 21 23 24 26 27 29 31 35 36 43 44 71 72 73 74 75 75 76
+INSERT               : 30
+INT                  : 37
+INTO                 : 30
+LE                   : 64
+LT                   : 63
+NE                   : 53 68
+NOT                  : 
+NULL                 : 62
+NUMBER               : 36 61
+OR                   : 48
+SELECT               : 28
+SET                  : 29
+SHOW                 : 22 25
+STRING               : 60
+TABLE                : 26 27
+TABLES               : 25
+UPDATE               : 29
+USE                  : 23
+VALUES               : 30
+WHERE                : 45
+error                : 
+
+Nonterminals, with rules where they appear
+
+attrtype             : 33 34
+colum_list           : 71 73
+command              : 1
+condition            : 50
+create_list          : 27 33
+createdatabase       : 7
+createtable          : 8
+ddl                  : 3
+delete               : 17
+dml                  : 4
+dropdatabase         : 10
+droptable            : 9
+empty                : 2 6 46
+exit                 : 18
+from_list            : 28 43
+insert               : 16
+insertvalue_list     : 30
+into_list            : 30
+mcond_list           : 45 47 47 48 48 49
+mvalue_list          : 32 56 58
+null_value           : 52 53 58 59
+op                   : 51
+query                : 14
+relaattr             : 41 42 51 52 53 54 69 70
+relaattr_list        : 39 41
+relaattr_or_value    : 51
+select_list          : 28
+set_list             : 29 69
+showdatabases        : 11
+showtables           : 12
+start                : 1 0
+type                 : 35 36
+update               : 15
+usedatabase          : 13
+utility              : 5
+value                : 55 56 57 69 70
+where_list           : 28 29 31
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . start
+    (1) start -> . command ; start
+    (2) start -> . empty
+    (3) command -> . ddl
+    (4) command -> . dml
+    (5) command -> . utility
+    (6) command -> . empty
+    (20) empty -> .
+    (7) ddl -> . createdatabase
+    (8) ddl -> . createtable
+    (9) ddl -> . droptable
+    (10) ddl -> . dropdatabase
+    (11) ddl -> . showdatabases
+    (12) ddl -> . showtables
+    (13) ddl -> . usedatabase
+    (14) dml -> . query
+    (15) dml -> . update
+    (16) dml -> . insert
+    (17) dml -> . delete
+    (18) utility -> . exit
+    (21) createdatabase -> . CREATE DATABASE ID
+    (27) createtable -> . CREATE TABLE ID ( create_list )
+    (26) droptable -> . DROP TABLE ID
+    (24) dropdatabase -> . DROP DATABASE ID
+    (22) showdatabases -> . SHOW DATABASES
+    (25) showtables -> . SHOW TABLES
+    (23) usedatabase -> . USE ID
+    (28) query -> . SELECT select_list FROM from_list where_list
+    (29) update -> . UPDATE ID SET set_list where_list
+    (30) insert -> . INSERT INTO into_list VALUES insertvalue_list
+    (31) delete -> . DELETE FROM ID where_list
+    (19) exit -> . EXIT
+
+    $end            reduce using rule 20 (empty -> .)
+    ;               reduce using rule 20 (empty -> .)
+    CREATE          shift and go to state 19
+    DROP            shift and go to state 20
+    SHOW            shift and go to state 21
+    USE             shift and go to state 22
+    SELECT          shift and go to state 23
+    UPDATE          shift and go to state 24
+    INSERT          shift and go to state 25
+    DELETE          shift and go to state 26
+    EXIT            shift and go to state 27
+
+    start                          shift and go to state 1
+    command                        shift and go to state 2
+    empty                          shift and go to state 3
+    ddl                            shift and go to state 4
+    dml                            shift and go to state 5
+    utility                        shift and go to state 6
+    createdatabase                 shift and go to state 7
+    createtable                    shift and go to state 8
+    droptable                      shift and go to state 9
+    dropdatabase                   shift and go to state 10
+    showdatabases                  shift and go to state 11
+    showtables                     shift and go to state 12
+    usedatabase                    shift and go to state 13
+    query                          shift and go to state 14
+    update                         shift and go to state 15
+    insert                         shift and go to state 16
+    delete                         shift and go to state 17
+    exit                           shift and go to state 18
+
+state 1
+
+    (0) S' -> start .
+
+
+
+state 2
+
+    (1) start -> command . ; start
+
+    ;               shift and go to state 28
+
+
+state 3
+
+    (2) start -> empty .
+    (6) command -> empty .
+
+    $end            reduce using rule 2 (start -> empty .)
+    ;               reduce using rule 6 (command -> empty .)
+
+
+state 4
+
+    (3) command -> ddl .
+
+    ;               reduce using rule 3 (command -> ddl .)
+
+
+state 5
+
+    (4) command -> dml .
+
+    ;               reduce using rule 4 (command -> dml .)
+
+
+state 6
+
+    (5) command -> utility .
+
+    ;               reduce using rule 5 (command -> utility .)
+
+
+state 7
+
+    (7) ddl -> createdatabase .
+
+    ;               reduce using rule 7 (ddl -> createdatabase .)
+
+
+state 8
+
+    (8) ddl -> createtable .
+
+    ;               reduce using rule 8 (ddl -> createtable .)
+
+
+state 9
+
+    (9) ddl -> droptable .
+
+    ;               reduce using rule 9 (ddl -> droptable .)
+
+
+state 10
+
+    (10) ddl -> dropdatabase .
+
+    ;               reduce using rule 10 (ddl -> dropdatabase .)
+
+
+state 11
+
+    (11) ddl -> showdatabases .
+
+    ;               reduce using rule 11 (ddl -> showdatabases .)
+
+
+state 12
+
+    (12) ddl -> showtables .
+
+    ;               reduce using rule 12 (ddl -> showtables .)
+
+
+state 13
+
+    (13) ddl -> usedatabase .
+
+    ;               reduce using rule 13 (ddl -> usedatabase .)
+
+
+state 14
+
+    (14) dml -> query .
+
+    ;               reduce using rule 14 (dml -> query .)
+
+
+state 15
+
+    (15) dml -> update .
+
+    ;               reduce using rule 15 (dml -> update .)
+
+
+state 16
+
+    (16) dml -> insert .
+
+    ;               reduce using rule 16 (dml -> insert .)
+
+
+state 17
+
+    (17) dml -> delete .
+
+    ;               reduce using rule 17 (dml -> delete .)
+
+
+state 18
+
+    (18) utility -> exit .
+
+    ;               reduce using rule 18 (utility -> exit .)
+
+
+state 19
+
+    (21) createdatabase -> CREATE . DATABASE ID
+    (27) createtable -> CREATE . TABLE ID ( create_list )
+
+    DATABASE        shift and go to state 29
+    TABLE           shift and go to state 30
+
+
+state 20
+
+    (26) droptable -> DROP . TABLE ID
+    (24) dropdatabase -> DROP . DATABASE ID
+
+    TABLE           shift and go to state 31
+    DATABASE        shift and go to state 32
+
+
+state 21
+
+    (22) showdatabases -> SHOW . DATABASES
+    (25) showtables -> SHOW . TABLES
+
+    DATABASES       shift and go to state 33
+    TABLES          shift and go to state 34
+
+
+state 22
+
+    (23) usedatabase -> USE . ID
+
+    ID              shift and go to state 35
+
+
+state 23
+
+    (28) query -> SELECT . select_list FROM from_list where_list
+    (39) select_list -> . relaattr_list
+    (40) select_list -> . *
+    (41) relaattr_list -> . relaattr , relaattr_list
+    (42) relaattr_list -> . relaattr
+    (75) relaattr -> . ID . ID
+    (76) relaattr -> . ID
+
+    *               shift and go to state 38
+    ID              shift and go to state 40
+
+    select_list                    shift and go to state 36
+    relaattr_list                  shift and go to state 37
+    relaattr                       shift and go to state 39
+
+state 24
+
+    (29) update -> UPDATE . ID SET set_list where_list
+
+    ID              shift and go to state 41
+
+
+state 25
+
+    (30) insert -> INSERT . INTO into_list VALUES insertvalue_list
+
+    INTO            shift and go to state 42
+
+
+state 26
+
+    (31) delete -> DELETE . FROM ID where_list
+
+    FROM            shift and go to state 43
+
+
+state 27
+
+    (19) exit -> EXIT .
+
+    ;               reduce using rule 19 (exit -> EXIT .)
+
+
+state 28
+
+    (1) start -> command ; . start
+    (1) start -> . command ; start
+    (2) start -> . empty
+    (3) command -> . ddl
+    (4) command -> . dml
+    (5) command -> . utility
+    (6) command -> . empty
+    (20) empty -> .
+    (7) ddl -> . createdatabase
+    (8) ddl -> . createtable
+    (9) ddl -> . droptable
+    (10) ddl -> . dropdatabase
+    (11) ddl -> . showdatabases
+    (12) ddl -> . showtables
+    (13) ddl -> . usedatabase
+    (14) dml -> . query
+    (15) dml -> . update
+    (16) dml -> . insert
+    (17) dml -> . delete
+    (18) utility -> . exit
+    (21) createdatabase -> . CREATE DATABASE ID
+    (27) createtable -> . CREATE TABLE ID ( create_list )
+    (26) droptable -> . DROP TABLE ID
+    (24) dropdatabase -> . DROP DATABASE ID
+    (22) showdatabases -> . SHOW DATABASES
+    (25) showtables -> . SHOW TABLES
+    (23) usedatabase -> . USE ID
+    (28) query -> . SELECT select_list FROM from_list where_list
+    (29) update -> . UPDATE ID SET set_list where_list
+    (30) insert -> . INSERT INTO into_list VALUES insertvalue_list
+    (31) delete -> . DELETE FROM ID where_list
+    (19) exit -> . EXIT
+
+    $end            reduce using rule 20 (empty -> .)
+    ;               reduce using rule 20 (empty -> .)
+    CREATE          shift and go to state 19
+    DROP            shift and go to state 20
+    SHOW            shift and go to state 21
+    USE             shift and go to state 22
+    SELECT          shift and go to state 23
+    UPDATE          shift and go to state 24
+    INSERT          shift and go to state 25
+    DELETE          shift and go to state 26
+    EXIT            shift and go to state 27
+
+    command                        shift and go to state 2
+    start                          shift and go to state 44
+    empty                          shift and go to state 3
+    ddl                            shift and go to state 4
+    dml                            shift and go to state 5
+    utility                        shift and go to state 6
+    createdatabase                 shift and go to state 7
+    createtable                    shift and go to state 8
+    droptable                      shift and go to state 9
+    dropdatabase                   shift and go to state 10
+    showdatabases                  shift and go to state 11
+    showtables                     shift and go to state 12
+    usedatabase                    shift and go to state 13
+    query                          shift and go to state 14
+    update                         shift and go to state 15
+    insert                         shift and go to state 16
+    delete                         shift and go to state 17
+    exit                           shift and go to state 18
+
+state 29
+
+    (21) createdatabase -> CREATE DATABASE . ID
+
+    ID              shift and go to state 45
+
+
+state 30
+
+    (27) createtable -> CREATE TABLE . ID ( create_list )
+
+    ID              shift and go to state 46
+
+
+state 31
+
+    (26) droptable -> DROP TABLE . ID
+
+    ID              shift and go to state 47
+
+
+state 32
+
+    (24) dropdatabase -> DROP DATABASE . ID
+
+    ID              shift and go to state 48
+
+
+state 33
+
+    (22) showdatabases -> SHOW DATABASES .
+
+    ;               reduce using rule 22 (showdatabases -> SHOW DATABASES .)
+
+
+state 34
+
+    (25) showtables -> SHOW TABLES .
+
+    ;               reduce using rule 25 (showtables -> SHOW TABLES .)
+
+
+state 35
+
+    (23) usedatabase -> USE ID .
+
+    ;               reduce using rule 23 (usedatabase -> USE ID .)
+
+
+state 36
+
+    (28) query -> SELECT select_list . FROM from_list where_list
+
+    FROM            shift and go to state 49
+
+
+state 37
+
+    (39) select_list -> relaattr_list .
+
+    FROM            reduce using rule 39 (select_list -> relaattr_list .)
+
+
+state 38
+
+    (40) select_list -> * .
+
+    FROM            reduce using rule 40 (select_list -> * .)
+
+
+state 39
+
+    (41) relaattr_list -> relaattr . , relaattr_list
+    (42) relaattr_list -> relaattr .
+
+    ,               shift and go to state 50
+    FROM            reduce using rule 42 (relaattr_list -> relaattr .)
+
+
+state 40
+
+    (75) relaattr -> ID . . ID
+    (76) relaattr -> ID .
+
+    .               shift and go to state 51
+    ,               reduce using rule 76 (relaattr -> ID .)
+    FROM            reduce using rule 76 (relaattr -> ID .)
+    EQ              reduce using rule 76 (relaattr -> ID .)
+    NE              reduce using rule 76 (relaattr -> ID .)
+    LT              reduce using rule 76 (relaattr -> ID .)
+    LE              reduce using rule 76 (relaattr -> ID .)
+    GT              reduce using rule 76 (relaattr -> ID .)
+    GE              reduce using rule 76 (relaattr -> ID .)
+    AND             reduce using rule 76 (relaattr -> ID .)
+    OR              reduce using rule 76 (relaattr -> ID .)
+    ;               reduce using rule 76 (relaattr -> ID .)
+    )               reduce using rule 76 (relaattr -> ID .)
+
+
+state 41
+
+    (29) update -> UPDATE ID . SET set_list where_list
+
+    SET             shift and go to state 52
+
+
+state 42
+
+    (30) insert -> INSERT INTO . into_list VALUES insertvalue_list
+    (71) into_list -> . ID ( colum_list )
+    (72) into_list -> . ID
+
+    ID              shift and go to state 54
+
+    into_list                      shift and go to state 53
+
+state 43
+
+    (31) delete -> DELETE FROM . ID where_list
+
+    ID              shift and go to state 55
+
+
+state 44
+
+    (1) start -> command ; start .
+
+    $end            reduce using rule 1 (start -> command ; start .)
+
+
+state 45
+
+    (21) createdatabase -> CREATE DATABASE ID .
+
+    ;               reduce using rule 21 (createdatabase -> CREATE DATABASE ID .)
+
+
+state 46
+
+    (27) createtable -> CREATE TABLE ID . ( create_list )
+
+    (               shift and go to state 56
+
+
+state 47
+
+    (26) droptable -> DROP TABLE ID .
+
+    ;               reduce using rule 26 (droptable -> DROP TABLE ID .)
+
+
+state 48
+
+    (24) dropdatabase -> DROP DATABASE ID .
+
+    ;               reduce using rule 24 (dropdatabase -> DROP DATABASE ID .)
+
+
+state 49
+
+    (28) query -> SELECT select_list FROM . from_list where_list
+    (43) from_list -> . ID , from_list
+    (44) from_list -> . ID
+
+    ID              shift and go to state 58
+
+    from_list                      shift and go to state 57
+
+state 50
+
+    (41) relaattr_list -> relaattr , . relaattr_list
+    (41) relaattr_list -> . relaattr , relaattr_list
+    (42) relaattr_list -> . relaattr
+    (75) relaattr -> . ID . ID
+    (76) relaattr -> . ID
+
+    ID              shift and go to state 40
+
+    relaattr                       shift and go to state 39
+    relaattr_list                  shift and go to state 59
+
+state 51
+
+    (75) relaattr -> ID . . ID
+
+    ID              shift and go to state 60
+
+
+state 52
+
+    (29) update -> UPDATE ID SET . set_list where_list
+    (69) set_list -> . relaattr EQ value , set_list
+    (70) set_list -> . relaattr EQ value
+    (75) relaattr -> . ID . ID
+    (76) relaattr -> . ID
+
+    ID              shift and go to state 40
+
+    set_list                       shift and go to state 61
+    relaattr                       shift and go to state 62
+
+state 53
+
+    (30) insert -> INSERT INTO into_list . VALUES insertvalue_list
+
+    VALUES          shift and go to state 63
+
+
+state 54
+
+    (71) into_list -> ID . ( colum_list )
+    (72) into_list -> ID .
+
+    (               shift and go to state 64
+    VALUES          reduce using rule 72 (into_list -> ID .)
+
+
+state 55
+
+    (31) delete -> DELETE FROM ID . where_list
+    (45) where_list -> . WHERE mcond_list
+    (46) where_list -> . empty
+    (20) empty -> .
+
+    WHERE           shift and go to state 66
+    ;               reduce using rule 20 (empty -> .)
+
+    where_list                     shift and go to state 65
+    empty                          shift and go to state 67
+
+state 56
+
+    (27) createtable -> CREATE TABLE ID ( . create_list )
+    (33) create_list -> . attrtype , create_list
+    (34) create_list -> . attrtype
+    (35) attrtype -> . ID type
+    (36) attrtype -> . ID type ( NUMBER )
+
+    ID              shift and go to state 68
+
+    create_list                    shift and go to state 69
+    attrtype                       shift and go to state 70
+
+state 57
+
+    (28) query -> SELECT select_list FROM from_list . where_list
+    (45) where_list -> . WHERE mcond_list
+    (46) where_list -> . empty
+    (20) empty -> .
+
+    WHERE           shift and go to state 66
+    ;               reduce using rule 20 (empty -> .)
+
+    where_list                     shift and go to state 71
+    empty                          shift and go to state 67
+
+state 58
+
+    (43) from_list -> ID . , from_list
+    (44) from_list -> ID .
+
+    ,               shift and go to state 72
+    WHERE           reduce using rule 44 (from_list -> ID .)
+    ;               reduce using rule 44 (from_list -> ID .)
+
+
+state 59
+
+    (41) relaattr_list -> relaattr , relaattr_list .
+
+    FROM            reduce using rule 41 (relaattr_list -> relaattr , relaattr_list .)
+
+
+state 60
+
+    (75) relaattr -> ID . ID .
+
+    ,               reduce using rule 75 (relaattr -> ID . ID .)
+    FROM            reduce using rule 75 (relaattr -> ID . ID .)
+    EQ              reduce using rule 75 (relaattr -> ID . ID .)
+    NE              reduce using rule 75 (relaattr -> ID . ID .)
+    LT              reduce using rule 75 (relaattr -> ID . ID .)
+    LE              reduce using rule 75 (relaattr -> ID . ID .)
+    GT              reduce using rule 75 (relaattr -> ID . ID .)
+    GE              reduce using rule 75 (relaattr -> ID . ID .)
+    AND             reduce using rule 75 (relaattr -> ID . ID .)
+    OR              reduce using rule 75 (relaattr -> ID . ID .)
+    ;               reduce using rule 75 (relaattr -> ID . ID .)
+    )               reduce using rule 75 (relaattr -> ID . ID .)
+
+
+state 61
+
+    (29) update -> UPDATE ID SET set_list . where_list
+    (45) where_list -> . WHERE mcond_list
+    (46) where_list -> . empty
+    (20) empty -> .
+
+    WHERE           shift and go to state 66
+    ;               reduce using rule 20 (empty -> .)
+
+    where_list                     shift and go to state 73
+    empty                          shift and go to state 67
+
+state 62
+
+    (69) set_list -> relaattr . EQ value , set_list
+    (70) set_list -> relaattr . EQ value
+
+    EQ              shift and go to state 74
+
+
+state 63
+
+    (30) insert -> INSERT INTO into_list VALUES . insertvalue_list
+    (32) insertvalue_list -> . ( mvalue_list )
+
+    (               shift and go to state 76
+
+    insertvalue_list               shift and go to state 75
+
+state 64
+
+    (71) into_list -> ID ( . colum_list )
+    (73) colum_list -> . ID , colum_list
+    (74) colum_list -> . ID
+
+    ID              shift and go to state 77
+
+    colum_list                     shift and go to state 78
+
+state 65
+
+    (31) delete -> DELETE FROM ID where_list .
+
+    ;               reduce using rule 31 (delete -> DELETE FROM ID where_list .)
+
+
+state 66
+
+    (45) where_list -> WHERE . mcond_list
+    (47) mcond_list -> . mcond_list AND mcond_list
+    (48) mcond_list -> . mcond_list OR mcond_list
+    (49) mcond_list -> . ( mcond_list )
+    (50) mcond_list -> . condition
+    (51) condition -> . relaattr op relaattr_or_value
+    (52) condition -> . relaattr EQ null_value
+    (53) condition -> . relaattr NE null_value
+    (75) relaattr -> . ID . ID
+    (76) relaattr -> . ID
+
+    (               shift and go to state 80
+    ID              shift and go to state 40
+
+    mcond_list                     shift and go to state 79
+    condition                      shift and go to state 81
+    relaattr                       shift and go to state 82
+
+state 67
+
+    (46) where_list -> empty .
+
+    ;               reduce using rule 46 (where_list -> empty .)
+
+
+state 68
+
+    (35) attrtype -> ID . type
+    (36) attrtype -> ID . type ( NUMBER )
+    (37) type -> . INT
+    (38) type -> . CHAR
+
+    INT             shift and go to state 84
+    CHAR            shift and go to state 85
+
+    type                           shift and go to state 83
+
+state 69
+
+    (27) createtable -> CREATE TABLE ID ( create_list . )
+
+    )               shift and go to state 86
+
+
+state 70
+
+    (33) create_list -> attrtype . , create_list
+    (34) create_list -> attrtype .
+
+    ,               shift and go to state 87
+    )               reduce using rule 34 (create_list -> attrtype .)
+
+
+state 71
+
+    (28) query -> SELECT select_list FROM from_list where_list .
+
+    ;               reduce using rule 28 (query -> SELECT select_list FROM from_list where_list .)
+
+
+state 72
+
+    (43) from_list -> ID , . from_list
+    (43) from_list -> . ID , from_list
+    (44) from_list -> . ID
+
+    ID              shift and go to state 58
+
+    from_list                      shift and go to state 88
+
+state 73
+
+    (29) update -> UPDATE ID SET set_list where_list .
+
+    ;               reduce using rule 29 (update -> UPDATE ID SET set_list where_list .)
+
+
+state 74
+
+    (69) set_list -> relaattr EQ . value , set_list
+    (70) set_list -> relaattr EQ . value
+    (60) value -> . STRING
+    (61) value -> . NUMBER
+
+    STRING          shift and go to state 90
+    NUMBER          shift and go to state 91
+
+    value                          shift and go to state 89
+
+state 75
+
+    (30) insert -> INSERT INTO into_list VALUES insertvalue_list .
+
+    ;               reduce using rule 30 (insert -> INSERT INTO into_list VALUES insertvalue_list .)
+
+
+state 76
+
+    (32) insertvalue_list -> ( . mvalue_list )
+    (56) mvalue_list -> . value , mvalue_list
+    (57) mvalue_list -> . value
+    (58) mvalue_list -> . null_value , mvalue_list
+    (59) mvalue_list -> . null_value
+    (60) value -> . STRING
+    (61) value -> . NUMBER
+    (62) null_value -> . NULL
+
+    STRING          shift and go to state 90
+    NUMBER          shift and go to state 91
+    NULL            shift and go to state 95
+
+    mvalue_list                    shift and go to state 92
+    value                          shift and go to state 93
+    null_value                     shift and go to state 94
+
+state 77
+
+    (73) colum_list -> ID . , colum_list
+    (74) colum_list -> ID .
+
+    ,               shift and go to state 96
+    )               reduce using rule 74 (colum_list -> ID .)
+
+
+state 78
+
+    (71) into_list -> ID ( colum_list . )
+
+    )               shift and go to state 97
+
+
+state 79
+
+    (45) where_list -> WHERE mcond_list .
+    (47) mcond_list -> mcond_list . AND mcond_list
+    (48) mcond_list -> mcond_list . OR mcond_list
+
+    ;               reduce using rule 45 (where_list -> WHERE mcond_list .)
+    AND             shift and go to state 98
+    OR              shift and go to state 99
+
+
+state 80
+
+    (49) mcond_list -> ( . mcond_list )
+    (47) mcond_list -> . mcond_list AND mcond_list
+    (48) mcond_list -> . mcond_list OR mcond_list
+    (49) mcond_list -> . ( mcond_list )
+    (50) mcond_list -> . condition
+    (51) condition -> . relaattr op relaattr_or_value
+    (52) condition -> . relaattr EQ null_value
+    (53) condition -> . relaattr NE null_value
+    (75) relaattr -> . ID . ID
+    (76) relaattr -> . ID
+
+    (               shift and go to state 80
+    ID              shift and go to state 40
+
+    mcond_list                     shift and go to state 100
+    condition                      shift and go to state 81
+    relaattr                       shift and go to state 82
+
+state 81
+
+    (50) mcond_list -> condition .
+
+    AND             reduce using rule 50 (mcond_list -> condition .)
+    OR              reduce using rule 50 (mcond_list -> condition .)
+    ;               reduce using rule 50 (mcond_list -> condition .)
+    )               reduce using rule 50 (mcond_list -> condition .)
+
+
+state 82
+
+    (51) condition -> relaattr . op relaattr_or_value
+    (52) condition -> relaattr . EQ null_value
+    (53) condition -> relaattr . NE null_value
+    (63) op -> . LT
+    (64) op -> . LE
+    (65) op -> . GT
+    (66) op -> . GE
+    (67) op -> . EQ
+    (68) op -> . NE
+
+    EQ              shift and go to state 102
+    NE              shift and go to state 103
+    LT              shift and go to state 104
+    LE              shift and go to state 105
+    GT              shift and go to state 106
+    GE              shift and go to state 107
+
+    op                             shift and go to state 101
+
+state 83
+
+    (35) attrtype -> ID type .
+    (36) attrtype -> ID type . ( NUMBER )
+
+    ,               reduce using rule 35 (attrtype -> ID type .)
+    )               reduce using rule 35 (attrtype -> ID type .)
+    (               shift and go to state 108
+
+
+state 84
+
+    (37) type -> INT .
+
+    (               reduce using rule 37 (type -> INT .)
+    ,               reduce using rule 37 (type -> INT .)
+    )               reduce using rule 37 (type -> INT .)
+
+
+state 85
+
+    (38) type -> CHAR .
+
+    (               reduce using rule 38 (type -> CHAR .)
+    ,               reduce using rule 38 (type -> CHAR .)
+    )               reduce using rule 38 (type -> CHAR .)
+
+
+state 86
+
+    (27) createtable -> CREATE TABLE ID ( create_list ) .
+
+    ;               reduce using rule 27 (createtable -> CREATE TABLE ID ( create_list ) .)
+
+
+state 87
+
+    (33) create_list -> attrtype , . create_list
+    (33) create_list -> . attrtype , create_list
+    (34) create_list -> . attrtype
+    (35) attrtype -> . ID type
+    (36) attrtype -> . ID type ( NUMBER )
+
+    ID              shift and go to state 68
+
+    attrtype                       shift and go to state 70
+    create_list                    shift and go to state 109
+
+state 88
+
+    (43) from_list -> ID , from_list .
+
+    WHERE           reduce using rule 43 (from_list -> ID , from_list .)
+    ;               reduce using rule 43 (from_list -> ID , from_list .)
+
+
+state 89
+
+    (69) set_list -> relaattr EQ value . , set_list
+    (70) set_list -> relaattr EQ value .
+
+    ,               shift and go to state 110
+    WHERE           reduce using rule 70 (set_list -> relaattr EQ value .)
+    ;               reduce using rule 70 (set_list -> relaattr EQ value .)
+
+
+state 90
+
+    (60) value -> STRING .
+
+    ,               reduce using rule 60 (value -> STRING .)
+    WHERE           reduce using rule 60 (value -> STRING .)
+    ;               reduce using rule 60 (value -> STRING .)
+    )               reduce using rule 60 (value -> STRING .)
+    AND             reduce using rule 60 (value -> STRING .)
+    OR              reduce using rule 60 (value -> STRING .)
+
+
+state 91
+
+    (61) value -> NUMBER .
+
+    ,               reduce using rule 61 (value -> NUMBER .)
+    WHERE           reduce using rule 61 (value -> NUMBER .)
+    ;               reduce using rule 61 (value -> NUMBER .)
+    )               reduce using rule 61 (value -> NUMBER .)
+    AND             reduce using rule 61 (value -> NUMBER .)
+    OR              reduce using rule 61 (value -> NUMBER .)
+
+
+state 92
+
+    (32) insertvalue_list -> ( mvalue_list . )
+
+    )               shift and go to state 111
+
+
+state 93
+
+    (56) mvalue_list -> value . , mvalue_list
+    (57) mvalue_list -> value .
+
+    ,               shift and go to state 112
+    )               reduce using rule 57 (mvalue_list -> value .)
+
+
+state 94
+
+    (58) mvalue_list -> null_value . , mvalue_list
+    (59) mvalue_list -> null_value .
+
+    ,               shift and go to state 113
+    )               reduce using rule 59 (mvalue_list -> null_value .)
+
+
+state 95
+
+    (62) null_value -> NULL .
+
+    ,               reduce using rule 62 (null_value -> NULL .)
+    )               reduce using rule 62 (null_value -> NULL .)
+    AND             reduce using rule 62 (null_value -> NULL .)
+    OR              reduce using rule 62 (null_value -> NULL .)
+    ;               reduce using rule 62 (null_value -> NULL .)
+
+
+state 96
+
+    (73) colum_list -> ID , . colum_list
+    (73) colum_list -> . ID , colum_list
+    (74) colum_list -> . ID
+
+    ID              shift and go to state 77
+
+    colum_list                     shift and go to state 114
+
+state 97
+
+    (71) into_list -> ID ( colum_list ) .
+
+    VALUES          reduce using rule 71 (into_list -> ID ( colum_list ) .)
+
+
+state 98
+
+    (47) mcond_list -> mcond_list AND . mcond_list
+    (47) mcond_list -> . mcond_list AND mcond_list
+    (48) mcond_list -> . mcond_list OR mcond_list
+    (49) mcond_list -> . ( mcond_list )
+    (50) mcond_list -> . condition
+    (51) condition -> . relaattr op relaattr_or_value
+    (52) condition -> . relaattr EQ null_value
+    (53) condition -> . relaattr NE null_value
+    (75) relaattr -> . ID . ID
+    (76) relaattr -> . ID
+
+    (               shift and go to state 80
+    ID              shift and go to state 40
+
+    mcond_list                     shift and go to state 115
+    condition                      shift and go to state 81
+    relaattr                       shift and go to state 82
+
+state 99
+
+    (48) mcond_list -> mcond_list OR . mcond_list
+    (47) mcond_list -> . mcond_list AND mcond_list
+    (48) mcond_list -> . mcond_list OR mcond_list
+    (49) mcond_list -> . ( mcond_list )
+    (50) mcond_list -> . condition
+    (51) condition -> . relaattr op relaattr_or_value
+    (52) condition -> . relaattr EQ null_value
+    (53) condition -> . relaattr NE null_value
+    (75) relaattr -> . ID . ID
+    (76) relaattr -> . ID
+
+    (               shift and go to state 80
+    ID              shift and go to state 40
+
+    mcond_list                     shift and go to state 116
+    condition                      shift and go to state 81
+    relaattr                       shift and go to state 82
+
+state 100
+
+    (49) mcond_list -> ( mcond_list . )
+    (47) mcond_list -> mcond_list . AND mcond_list
+    (48) mcond_list -> mcond_list . OR mcond_list
+
+    )               shift and go to state 117
+    AND             shift and go to state 98
+    OR              shift and go to state 99
+
+
+state 101
+
+    (51) condition -> relaattr op . relaattr_or_value
+    (54) relaattr_or_value -> . relaattr
+    (55) relaattr_or_value -> . value
+    (75) relaattr -> . ID . ID
+    (76) relaattr -> . ID
+    (60) value -> . STRING
+    (61) value -> . NUMBER
+
+    ID              shift and go to state 40
+    STRING          shift and go to state 90
+    NUMBER          shift and go to state 91
+
+    relaattr                       shift and go to state 118
+    relaattr_or_value              shift and go to state 119
+    value                          shift and go to state 120
+
+state 102
+
+    (52) condition -> relaattr EQ . null_value
+    (67) op -> EQ .
+    (62) null_value -> . NULL
+
+    ID              reduce using rule 67 (op -> EQ .)
+    STRING          reduce using rule 67 (op -> EQ .)
+    NUMBER          reduce using rule 67 (op -> EQ .)
+    NULL            shift and go to state 95
+
+    null_value                     shift and go to state 121
+
+state 103
+
+    (53) condition -> relaattr NE . null_value
+    (68) op -> NE .
+    (62) null_value -> . NULL
+
+    ID              reduce using rule 68 (op -> NE .)
+    STRING          reduce using rule 68 (op -> NE .)
+    NUMBER          reduce using rule 68 (op -> NE .)
+    NULL            shift and go to state 95
+
+    null_value                     shift and go to state 122
+
+state 104
+
+    (63) op -> LT .
+
+    ID              reduce using rule 63 (op -> LT .)
+    STRING          reduce using rule 63 (op -> LT .)
+    NUMBER          reduce using rule 63 (op -> LT .)
+
+
+state 105
+
+    (64) op -> LE .
+
+    ID              reduce using rule 64 (op -> LE .)
+    STRING          reduce using rule 64 (op -> LE .)
+    NUMBER          reduce using rule 64 (op -> LE .)
+
+
+state 106
+
+    (65) op -> GT .
+
+    ID              reduce using rule 65 (op -> GT .)
+    STRING          reduce using rule 65 (op -> GT .)
+    NUMBER          reduce using rule 65 (op -> GT .)
+
+
+state 107
+
+    (66) op -> GE .
+
+    ID              reduce using rule 66 (op -> GE .)
+    STRING          reduce using rule 66 (op -> GE .)
+    NUMBER          reduce using rule 66 (op -> GE .)
+
+
+state 108
+
+    (36) attrtype -> ID type ( . NUMBER )
+
+    NUMBER          shift and go to state 123
+
+
+state 109
+
+    (33) create_list -> attrtype , create_list .
+
+    )               reduce using rule 33 (create_list -> attrtype , create_list .)
+
+
+state 110
+
+    (69) set_list -> relaattr EQ value , . set_list
+    (69) set_list -> . relaattr EQ value , set_list
+    (70) set_list -> . relaattr EQ value
+    (75) relaattr -> . ID . ID
+    (76) relaattr -> . ID
+
+    ID              shift and go to state 40
+
+    relaattr                       shift and go to state 62
+    set_list                       shift and go to state 124
+
+state 111
+
+    (32) insertvalue_list -> ( mvalue_list ) .
+
+    ;               reduce using rule 32 (insertvalue_list -> ( mvalue_list ) .)
+
+
+state 112
+
+    (56) mvalue_list -> value , . mvalue_list
+    (56) mvalue_list -> . value , mvalue_list
+    (57) mvalue_list -> . value
+    (58) mvalue_list -> . null_value , mvalue_list
+    (59) mvalue_list -> . null_value
+    (60) value -> . STRING
+    (61) value -> . NUMBER
+    (62) null_value -> . NULL
+
+    STRING          shift and go to state 90
+    NUMBER          shift and go to state 91
+    NULL            shift and go to state 95
+
+    value                          shift and go to state 93
+    mvalue_list                    shift and go to state 125
+    null_value                     shift and go to state 94
+
+state 113
+
+    (58) mvalue_list -> null_value , . mvalue_list
+    (56) mvalue_list -> . value , mvalue_list
+    (57) mvalue_list -> . value
+    (58) mvalue_list -> . null_value , mvalue_list
+    (59) mvalue_list -> . null_value
+    (60) value -> . STRING
+    (61) value -> . NUMBER
+    (62) null_value -> . NULL
+
+    STRING          shift and go to state 90
+    NUMBER          shift and go to state 91
+    NULL            shift and go to state 95
+
+    null_value                     shift and go to state 94
+    mvalue_list                    shift and go to state 126
+    value                          shift and go to state 93
+
+state 114
+
+    (73) colum_list -> ID , colum_list .
+
+    )               reduce using rule 73 (colum_list -> ID , colum_list .)
+
+
+state 115
+
+    (47) mcond_list -> mcond_list AND mcond_list .
+    (47) mcond_list -> mcond_list . AND mcond_list
+    (48) mcond_list -> mcond_list . OR mcond_list
+
+    AND             reduce using rule 47 (mcond_list -> mcond_list AND mcond_list .)
+    OR              reduce using rule 47 (mcond_list -> mcond_list AND mcond_list .)
+    ;               reduce using rule 47 (mcond_list -> mcond_list AND mcond_list .)
+    )               reduce using rule 47 (mcond_list -> mcond_list AND mcond_list .)
+
+  ! AND             [ shift and go to state 98 ]
+  ! OR              [ shift and go to state 99 ]
+
+
+state 116
+
+    (48) mcond_list -> mcond_list OR mcond_list .
+    (47) mcond_list -> mcond_list . AND mcond_list
+    (48) mcond_list -> mcond_list . OR mcond_list
+
+    OR              reduce using rule 48 (mcond_list -> mcond_list OR mcond_list .)
+    ;               reduce using rule 48 (mcond_list -> mcond_list OR mcond_list .)
+    )               reduce using rule 48 (mcond_list -> mcond_list OR mcond_list .)
+    AND             shift and go to state 98
+
+  ! AND             [ reduce using rule 48 (mcond_list -> mcond_list OR mcond_list .) ]
+  ! OR              [ shift and go to state 99 ]
+
+
+state 117
+
+    (49) mcond_list -> ( mcond_list ) .
+
+    AND             reduce using rule 49 (mcond_list -> ( mcond_list ) .)
+    OR              reduce using rule 49 (mcond_list -> ( mcond_list ) .)
+    ;               reduce using rule 49 (mcond_list -> ( mcond_list ) .)
+    )               reduce using rule 49 (mcond_list -> ( mcond_list ) .)
+
+
+state 118
+
+    (54) relaattr_or_value -> relaattr .
+
+    AND             reduce using rule 54 (relaattr_or_value -> relaattr .)
+    OR              reduce using rule 54 (relaattr_or_value -> relaattr .)
+    ;               reduce using rule 54 (relaattr_or_value -> relaattr .)
+    )               reduce using rule 54 (relaattr_or_value -> relaattr .)
+
+
+state 119
+
+    (51) condition -> relaattr op relaattr_or_value .
+
+    AND             reduce using rule 51 (condition -> relaattr op relaattr_or_value .)
+    OR              reduce using rule 51 (condition -> relaattr op relaattr_or_value .)
+    ;               reduce using rule 51 (condition -> relaattr op relaattr_or_value .)
+    )               reduce using rule 51 (condition -> relaattr op relaattr_or_value .)
+
+
+state 120
+
+    (55) relaattr_or_value -> value .
+
+    AND             reduce using rule 55 (relaattr_or_value -> value .)
+    OR              reduce using rule 55 (relaattr_or_value -> value .)
+    ;               reduce using rule 55 (relaattr_or_value -> value .)
+    )               reduce using rule 55 (relaattr_or_value -> value .)
+
+
+state 121
+
+    (52) condition -> relaattr EQ null_value .
+
+    AND             reduce using rule 52 (condition -> relaattr EQ null_value .)
+    OR              reduce using rule 52 (condition -> relaattr EQ null_value .)
+    ;               reduce using rule 52 (condition -> relaattr EQ null_value .)
+    )               reduce using rule 52 (condition -> relaattr EQ null_value .)
+
+
+state 122
+
+    (53) condition -> relaattr NE null_value .
+
+    AND             reduce using rule 53 (condition -> relaattr NE null_value .)
+    OR              reduce using rule 53 (condition -> relaattr NE null_value .)
+    ;               reduce using rule 53 (condition -> relaattr NE null_value .)
+    )               reduce using rule 53 (condition -> relaattr NE null_value .)
+
+
+state 123
+
+    (36) attrtype -> ID type ( NUMBER . )
+
+    )               shift and go to state 127
+
+
+state 124
+
+    (69) set_list -> relaattr EQ value , set_list .
+
+    WHERE           reduce using rule 69 (set_list -> relaattr EQ value , set_list .)
+    ;               reduce using rule 69 (set_list -> relaattr EQ value , set_list .)
+
+
+state 125
+
+    (56) mvalue_list -> value , mvalue_list .
+
+    )               reduce using rule 56 (mvalue_list -> value , mvalue_list .)
+
+
+state 126
+
+    (58) mvalue_list -> null_value , mvalue_list .
+
+    )               reduce using rule 58 (mvalue_list -> null_value , mvalue_list .)
+
+
+state 127
+
+    (36) attrtype -> ID type ( NUMBER ) .
+
+    ,               reduce using rule 36 (attrtype -> ID type ( NUMBER ) .)
+    )               reduce using rule 36 (attrtype -> ID type ( NUMBER ) .)
+
